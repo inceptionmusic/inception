@@ -1,0 +1,27 @@
+{
+  "name": "inception-cms",
+  "version": "0.1.0",
+  "author": "Jed Hazaymeh",
+  "private": true,
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/strapi": "4.7.0",
+    "@strapi/plugin-users-permissions": "4.7.0",
+    "@strapi/plugin-i18n": "4.7.0",
+    "pg": "8.8.0"
+  },
+  "strapi": {
+    "uuid": "089be912-3bb6-4ad5-b88b-00b9914b0722"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
