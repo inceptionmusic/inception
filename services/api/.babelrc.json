@@ -3,6 +3,7 @@
     [
       "@babel/preset-env",
       {
+        "exclude": ["proposal-dynamic-import"],
         "targets": {
           "node": "current"
         }

@@ -4,7 +4,7 @@
   "author": "Jed Hazaymeh",
   "private": true,
   "scripts": {
-    "develop": "strapi develop",
+    "dev": "strapi dev",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"

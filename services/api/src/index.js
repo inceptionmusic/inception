@@ -1,19 +1,26 @@
 import app from './app'
 import config from './config/config'
+import console from './config/console'
 
-const server = app.listen(config.port, () => {
+const server = app.listen(config.port, async () => {
   let host = server.address()
-  console.log(`
-    Inception API gateway server\n
-    Status: Started\n
-    Environment: ${config.env}\n
-    Host: ${host.address}:${host.port}\n
-  `)
+  host.address = host.address === '::' ? 'localhost' : host.address
+
+  console.log('\nServer listening on:')
+  await console.draw(`http://${host.address}:${host.port}`)
+
+  console.log('\nAdditional information:')
+  await console.draw([
+    ['Environment', config.env],
+    ['Version', `node ${process.version}`],
+    ['Started in', `${(process.uptime() * 1000).toFixed(0)} ms`],
+    ['Process PID', process.pid],
+  ])
 })
 
 const exitHandler = () => {
   server.close(() => {
-    console.log('Status: Closed')
+    console.log('Server Closed')
     process.exit(1)
   })
 }

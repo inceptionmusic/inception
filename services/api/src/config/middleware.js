@@ -28,7 +28,7 @@ export const cache = (ttl) => (req, res, next) => {
 // eslint-disable-next-line no-unused-vars
 export const errorHandler = (err, _req, res, _next) => {
   const production = config.env === 'production'
-  if (!production) console.error(err)
+  if (!production && err.status !== 404) console.error(err)
   res.status(err.status || 500).json({
     status: err.status || 500,
     message: err.message,
