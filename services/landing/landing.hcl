@@ -22,7 +22,7 @@ job "landing" {
 
       tags = [
         "traefik.enable=true",
-        "traefik.http.routers.landing.rule=Host(`landing.inceptionmusic.com`)",
+        "traefik.http.routers.landing.rule=Host(`inceptionmusic.com`)",
         "traefik.http.routers.landing.entrypoints=websecure",
         "traefik.http.routers.landing.tls.certresolver=lets-encrypt"
       ]
@@ -32,7 +32,7 @@ job "landing" {
       driver = "docker"
 
       config {
-        image = "" //TODO: update to proper image
+        image = "ghcr.io/inceptionmusic/inception-landing"
         ports = ["http"]
       }
     }
